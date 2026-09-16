@@ -2,7 +2,16 @@
 
 [Guide home](../README.md) · Prerequisite: [Preparation](preparation.md)
 
-## Get Windows 11 Professional legitimately
+## Choose Home for personal use or Pro for school enrolment
+
+| Intended installation | Edition to discuss with ICT | Setup route |
+| --- | --- | --- |
+| Approved personal Windows environment for coding and apps | Windows 11 Home | Personal setup using a valid Home licence |
+| Additional school-managed environment | Windows 11 Pro or Pro Education, as specified by school | School setup and MIMS sign-in; see [enrolment](school-enrolment.md) |
+
+Home is an option for the personal partition, **not a guarantee of “no DMA”**. Edition selection does not remove device registration or school policy, and management software may still be installed. Preserve the original managed installation and follow the agreed use of the second OS. Pro Education is a distinct edition from both Pro and Education; obtain the appropriate media and entitlement from ICT.
+
+## Get official installation media
 
 Windows 11 **Pro** is the edition commonly called “Professional”. Download official installation media from [Microsoft](https://www.microsoft.com/en-us/software-download/windows11). The x64 multi-edition ISO can install Pro; the downloaded ISO itself does not grant a licence. Use the media creation tool or ISO route, not Installation Assistant, which upgrades the currently running installation.
 
@@ -12,9 +21,44 @@ Windows 11 **Pro** is the edition commonly called “Professional”. Download o
 ![The x64 multi-edition Windows 11 ISO selected in Microsoft's download menu](../assets/screenshots/windows-iso-selection.png)
 *This guide covers Intel/AMD x64 hardware. The separate Arm64 download is not interchangeable.*
 
-Obtain a genuine Pro licence from Microsoft/an authorised seller or ask ICT whether your school provides an entitlement for this particular installation. Do not assume the original OEM licence covers an additional installed copy, or that activation proves entitlement. Check the terms of the licence you are actually using. MIMS access and Microsoft 365/Office access do not establish a Windows Pro licence.
+Obtain a genuine licence for the chosen edition from Microsoft/an authorised seller or ask ICT whether your school provides an entitlement for this particular installation. Do not assume the original OEM licence covers an additional installed copy, or that activation proves entitlement. Check the terms of the licence you are actually using. MIMS access and Microsoft 365/Office access do not establish a Windows Pro licence.
 
-When Setup offers an edition list, choose **Windows 11 Pro** if it matches your licence and school instructions. A firmware key may select another edition automatically. If so, stop to confirm the supported Pro installation/upgrade route with ICT or Microsoft; an edition-selection file does not create a licence. This guide does not require editing `ei.cfg` or using generic activation keys. See [Microsoft activation guidance](https://support.microsoft.com/en-gb/windows/activate-windows-c39005d4-95ee-b91e-b399-2820fda32227).
+When Setup offers an edition list, select the edition matching your licence and intended use. A firmware key can select an edition automatically. See [Microsoft activation guidance](https://support.microsoft.com/en-gb/windows/activate-windows-c39005d4-95ee-b91e-b399-2820fda32227); selecting an edition and activating it are separate steps.
+
+## Select Home using ei.cfg and PID.txt
+
+For an approved personal installation, the Home edition ID is `Core` (often written “CORE”). First create the USB from official multi-edition media that includes Home. These files affect **new installations from that USB**, not the existing school Windows.
+
+Save this retail, non-volume Home example as `ei.cfg` in the USB's `sources` folder:
+
+```ini
+[EditionID]
+Core
+[Channel]
+Retail
+[VL]
+0
+```
+
+Use `Retail` only for matching retail media/licensing; ask ICT or the supplier about another channel. If you also want Setup to read the installation key from a file, save `PID.txt` beside it:
+
+```ini
+[PID]
+Value=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+```
+
+**Replace the placeholder with your valid Home installation key; the Xs are not a working key.** `PID.txt` is optional if you enter the key in Setup. It does not activate Windows or grant a licence. The key must match an edition in the image. An unattended answer file takes precedence over these files. [Microsoft documents these formats and behaviour](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-edition-configuration-and-product-id-files--eicfg-and-pidtxt?view=windows-11).
+
+In Notepad, select **All files** when saving. Enable filename extensions in File Explorer and check that the files are not accidentally named `ei.cfg.txt` or `PID.txt.txt`.
+
+```text
+Installer USB/
+└── sources/
+    ├── ei.cfg
+    └── PID.txt    ← optional; contains a private key when completed
+```
+
+Check the edition shown by Setup before continuing. If it disagrees or rejects the key, cancel and check the media, edition, channel, and key. Do not alter partitions to fix an edition error. Delete a completed `PID.txt` before sharing/reusing the USB, and remove the Home configuration before using it to install school Pro/Pro Education. Never commit or screenshot a real key.
 
 ## Install only into the new space
 

@@ -8,7 +8,7 @@ Ubuntu Desktop LTS is the example used here; use a currently supported release f
 
 Create the USB using the distribution's instructions. Boot it in UEFI mode and choose **Try Ubuntu** before installing. Test Wi-Fi, keyboard, touchpad, display, audio, and sleep/wake. A live session is a useful compatibility check, not proof that installation will work. Keep the school Windows volume unmounted and do not unlock it from Linux.
 
-Keep Secure Boot enabled. If media or a required driver cannot work with the school's boot-security policy, stop and consult ICT. Driver signing or key-enrolment prompts require understanding and school approval; do not disable Secure Boot to get past them.
+Start with Secure Boot enabled. Some firmware/driver combinations need trust-setting changes or MOK enrolment; others are incompatible with the school’s required configuration. Before changing anything, read [Secure Boot and BitLocker](secure-boot.md): changes can trigger recovery on the original managed Windows partition. Use current device-specific guidance with ICT.
 
 ## Resolve installer blockers before writing anything
 

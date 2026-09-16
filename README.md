@@ -45,7 +45,7 @@ The sequence below provides the same navigation without the diagram.
 
 ## What this guide covers
 
-The documented path is for **Intel/AMD x64 laptops with UEFI, a GPT basic disk, and a working Windows installation**. It keeps Secure Boot and TPM enabled. ARM/Snapdragon, Windows SE, Chromebooks, iPads, dynamic disks, Storage Spaces, unusual multi-disk layouts, and locked firmware need device-specific school support; do not apply these steps blindly.
+The documented path is for **Intel/AMD x64 laptops with UEFI, a GPT basic disk, and a working Windows installation**. It starts with Secure Boot and TPM enabled; [device-specific Secure Boot changes](docs/secure-boot.md) require a recovery plan for the original managed Windows partition. ARM/Snapdragon, Windows SE, Chromebooks, iPads, dynamic disks, Storage Spaces, unusual multi-disk layouts, and locked firmware need device-specific school support; do not apply these steps blindly.
 
 A second partition shares the physical disk and usually the EFI boot partition with Windows. It is not a backup or complete security boundary. A disk failure or whole-device reimage can affect both operating systems. DMA policies, enrolment, drivers, and support arrangements differ between schools and device models.
 

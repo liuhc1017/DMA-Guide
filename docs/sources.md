@@ -19,6 +19,16 @@ Source review date: **16 September 2026**. Prefer the current original documents
 | [Ubuntu Desktop documentation](https://ubuntu.com/desktop/docs/en/latest/) | Current USB, installation, BitLocker, and RST guidance. |
 | [Rufus official site](https://rufus.ie/en/) | Authentic downloads and executable usage. |
 
+## Additional technical references
+
+- [Windows Setup EI.cfg and PID.txt](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-edition-configuration-and-product-id-files--eicfg-and-pidtxt?view=windows-11): optional edition/key configuration, not activation.
+- [Windows Autopilot requirements](https://learn.microsoft.com/en-us/autopilot/requirements): supported editions, including Pro and Pro Education; not proof of school deployment settings.
+- [Company Portal app status](https://learn.microsoft.com/en-us/intune/user-help/apps/install-apps-windows): required/optional apps and installation progress.
+- [BitLocker FAQ](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/faq): boot changes and recovery triggers.
+- [Ubuntu Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot): signed boot chain and driver key enrolment.
+
+The maintainer supplied the [MIMS provisioning experience](school-enrolment.md), including the approximate 30-minute-to-2-hour wait. This timing is not independently measured or an official MOE guarantee.
+
 ## Evidence boundaries
 
 This revision is a documentation review, not a successful installation report. The inherited screenshots show individual UI screens; they do not prove preservation of DMA, school access, recovery, or any complete dual-boot workflow. The storage budgets and stop conditions are this project's conservative planning guidance, not MOE requirements.

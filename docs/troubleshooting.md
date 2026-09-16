@@ -10,7 +10,7 @@ Stop repeated installation attempts when the disk layout or encryption state is 
 | Shrink offers little or no space | Unmovable files can limit shrinking. Keep school data backed up and discuss capacity with ICT; do not force a resize with another OS. |
 | BitLocker asks for a recovery key | Match the on-screen key ID with the correct recovery key or contact ICT. Do not clear TPM, format, or reset. See recovery below. |
 | USB is missing from the boot menu | Verify it was written successfully for the correct architecture/UEFI mode; use the manufacturer's one-time menu. Try a working port/media. If policy blocks boot, contact ICT. |
-| Secure Boot rejects the installer | Check official media integrity and current device guidance with ICT. Keep Secure Boot enabled. |
+| Secure Boot rejects the installer | Check official media and device guidance with ICT. A change may be needed; first prepare for [BitLocker recovery on school Windows](secure-boot.md). |
 | Installer cannot see the SSD / requests RST changes | Obtain exact-model storage drivers or ICT assistance. Do not switch RST/VMD/RAID to AHCI casually. |
 | Windows says it cannot install on the selected disk | Recheck UEFI boot, GPT, and the prepared space. Cancel if anything differs. Do not use `diskpart clean`, convert the disk, or delete partitions. |
 | Windows installer has no network | Use approved exact-model OEM network drivers or a supported wired adapter. Do not use account-requirement workarounds. |

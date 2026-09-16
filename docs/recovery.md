@@ -12,6 +12,8 @@ If school Windows starts, back up new files immediately, check DMA and school ac
 
 ## 2. Handle a BitLocker prompt
 
+A recent Secure Boot, trust-key, firmware, or boot-path change can trigger this on the **original DMA-managed partition**, even when its files are intact. See [Secure Boot changes](secure-boot.md) before making further adjustments.
+
 Record the recovery-key ID privately and obtain the matching key through the school's approved route. A school-managed key may be held by ICT; it may not be in your personal Microsoft account. See [Microsoft's recovery-key guidance](https://support.microsoft.com/en-us/windows/finding-your-bitlocker-recovery-key-in-windows-6b71ad27-0b89-ea08-f143-056f5ab347d6).
 
 Do not post the 48-digit key, clear the TPM, or choose Reset because you cannot find the key. There is no recovery-key replacement in this repository. If prompts recur, ask ICT to review the boot/encryption configuration rather than repeatedly changing firmware settings.

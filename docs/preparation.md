@@ -20,7 +20,10 @@ The EFI System Partition contains boot files; the MSR is Microsoft's reserved pa
 
 ## 2. Check encryption before changing the disk
 
-Have the recovery key accessible before the first disk or boot change. Boot changes can trigger BitLocker recovery. Let ICT decide whether temporary suspension is needed and how protection will be resumed. **Suspending BitLocker is not decrypting the drive** and does not resolve an installer's requirement for decryption. Do not clear the TPM or turn off Secure Boot.
+> [!WARNING]
+> A Secure Boot or boot-path change can lock the **original DMA-managed Windows partition** behind a BitLocker recovery prompt. This can happen even when installing only into unallocated space. Obtain the correct recovery key first.
+
+Have the recovery key accessible before the first disk or boot change. Boot changes can trigger BitLocker recovery. Let ICT decide whether temporary suspension is needed and how protection will be resumed. **Suspending BitLocker is not decrypting the drive** and does not resolve an installer's requirement for decryption. Do not clear the TPM. Start with Secure Boot enabled; if the media or drivers need a change, follow the [Secure Boot and BitLocker checks](secure-boot.md) before touching firmware settings.
 
 If Linux installation requires decrypting school Windows, stop and consult ICT; see the [Linux path](linux.md). Do not turn off school-managed encryption merely to make an installer proceed.
 

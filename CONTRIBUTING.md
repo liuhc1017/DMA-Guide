@@ -17,8 +17,20 @@ Use the [issue chooser](https://github.com/liuhc1017/DMA-Guide/issues/new/choose
 3. State what you actually tested and what remains unverified. Do not test destructive steps on a school device to validate a contribution.
 4. Check relative links, images, alt text, headings, and Markdown rendering. Keep warnings next to risky steps and retain recovery links.
 5. For screenshots, follow the [catalogue requirements](assets/screenshots/README.md). Never submit personal or school secrets.
-6. Run `git diff --check`, review the diff, and commit your changes. Include the validation performed in the pull request.
+6. Run the checks below, review the diff, and commit your changes. Include the validation performed in the pull request.
 
 By contributing, you agree that your contribution is provided under the project's [MIT licence](LICENSE). Respect third-party image and documentation rights; link to official material instead of copying long passages.
 
 Be considerate: contributors may be students learning these tools for the first time. Explain corrections plainly and avoid asking anyone to disclose school credentials or break their school's rules.
+
+## Local documentation checks
+
+Run from the repository root with Python 3 (no additional packages):
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+python3 scripts/check_docs.py
+git diff --check
+```
+
+GitHub Actions runs these navigation checks on pull requests and pushes to `main`. The checker covers inline Markdown links/images, plain ATX heading anchors, descriptive image alt text, and closed code fences. It ignores fenced examples and does not fetch external sites. It is not a full Markdown parser; review reference-style links, raw HTML, external sources, and rendered layout manually. Passing checks does not validate installation safety or school policy.

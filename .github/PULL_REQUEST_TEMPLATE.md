@@ -15,4 +15,4 @@ What does this fix or improve? Link any related issue.
 - [ ] Explains relevant disk, encryption, recovery, and school-access risks.
 - [ ] Contains no credentials, recovery keys, serial numbers, or private enrolment information.
 - [ ] Distinguishes verified results from assumptions and school-specific policies.
-- [ ] Ran `git diff --check` and committed the changes.
+- [ ] Ran the [local documentation checks](../CONTRIBUTING.md#local-documentation-checks), reviewed rendering, and committed the changes.

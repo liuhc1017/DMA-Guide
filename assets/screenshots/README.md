@@ -1,6 +1,6 @@
 # Screenshot catalogue
 
-[Guide home](../../README.md) · [Contributing](../../CONTRIBUTING.md)
+[Guide home](../../README.md) · [Visual walkthrough](../../docs/visual-walkthrough.md) · [Contributing](../../CONTRIBUTING.md)
 
 These are original repository assets renamed for clarity; no UI has been generated or retouched. Their filenames indicate capture on **13 February 2026**. They have been visually reviewed for use in the guide; provenance beyond the inherited repository is not independently verified. Product UI may change.
 

@@ -19,6 +19,7 @@ Stop repeated installation attempts when the disk layout or encryption state is 
 | Linux cannot see Windows in its boot menu | Try firmware → Windows Boot Manager. A missing menu entry does not prove Windows was deleted. |
 | Two identical Windows menu entries | Boot and identify each by accounts/files; record the mapping. Never delete the one you merely suspect is old. |
 | Pro is missing or Windows will not activate | Check the installed edition and genuine licence with Microsoft/ICT. A firmware key may select another edition; MIMS is not a guaranteed Pro entitlement. |
+| School apps have not arrived after first login | Keep the managed OS online and on AC; inspect Company Portal statuses. The maintainer reports roughly 30 minutes–2 hours, with wide variation. Persistent errors or stalled progress need ICT, not a reinstall. See [provisioning](school-enrolment.md#first-boot-allow-time-for-apps-to-arrive). |
 | MIMS sign-in works but DMA is missing | Ask ICT to verify the intended enrolment and deployment. See [school enrolment](school-enrolment.md). |
 | School Wi-Fi/apps fail in the second OS | Use original school Windows. Certificates, management, drivers, or compliance may be required; do not copy school certificates/private keys. |
 | Update changes boot order | Use the permitted one-time boot menu to choose school Windows, then have the default corrected. Keep recovery keys available. |

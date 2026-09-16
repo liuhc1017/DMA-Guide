@@ -1,0 +1,23 @@
+name: Documentation checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  local-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Test the documentation checker
+        run: python3 -m unittest discover -s tests -v
+      - name: Check guide navigation and images
+        run: python3 scripts/check_docs.py
+      - name: Check whitespace
+        run: git show --format= --check HEAD

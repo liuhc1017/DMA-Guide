@@ -12,6 +12,22 @@ The aim is to keep the **original school-managed Windows installation, files, re
 
 ## Start here
 
+Prefer to see the screens first? Open the [six-picture walkthrough](docs/visual-walkthrough.md) for what to look for, what each field means, and when to stop.
+
+```mermaid
+flowchart TD
+    A[Check school permission, backups and recovery keys] --> B[Record disk layout and prepare unallocated space]
+    B --> C[Verify original school Windows still works]
+    C --> D{Choose a second OS}
+    D --> E[Windows guide]
+    D --> F[Linux guide]
+    E --> G[Verify both systems and school access]
+    F --> G
+    G --> H[Keep school Windows ready for lessons]
+```
+
+The sequence below provides the same navigation without the diagram.
+
 1. Read [before you begin](docs/before-you-begin.md), including school permission, backups, encryption, and supported hardware.
 2. [Prepare space and installation media](docs/preparation.md). Reboot and check the original Windows before proceeding.
 3. Choose **one** second OS: [Windows 11 / Pro](docs/windows.md) or [Linux / Ubuntu](docs/linux.md).

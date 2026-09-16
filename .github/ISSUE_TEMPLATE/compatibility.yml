@@ -1,0 +1,49 @@
+name: Compatibility or troubleshooting report
+description: Share a sanitised observation that could improve the guide; not emergency device support.
+title: "[Compatibility]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Stop disk changes and contact school ICT if school Windows will not boot. Never attach recovery keys, passwords, account addresses, serial numbers, or unredacted logs. A report does not establish school approval."
+  - type: input
+    id: hardware
+    attributes:
+      label: Device model and architecture
+      description: Model only, not serial number or asset tag.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Windows edition/build and second OS/installer version
+    validations:
+      required: true
+  - type: dropdown
+    id: boot
+    attributes:
+      label: Does original school Windows still start?
+      options:
+        - "Yes"
+        - "No — I am contacting school ICT"
+        - "Not tested / unsure"
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Guide step, expected result, and actual result
+      description: Include sanitised error wording, relevant UEFI/encryption status if known, and what you already tried. Do not retry risky steps just to reproduce them.
+    validations:
+      required: true
+  - type: textarea
+    id: preservation
+    attributes:
+      label: Preservation checks actually completed
+      description: Report which boot, file, DMA, school-access, and recovery checks you verified, and which remain unknown. Do not name your school or share its private configuration.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I have removed personal information and secrets from text and attachments.
+          required: true

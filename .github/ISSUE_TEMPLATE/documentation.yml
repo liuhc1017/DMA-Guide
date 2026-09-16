@@ -1,0 +1,35 @@
+name: Documentation correction
+description: Report an unclear, outdated, or technically incorrect instruction.
+title: "[Docs]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include names, school account addresses, passwords, recovery/product keys, serial numbers, or private enrolment links. Contact school ICT for urgent recovery."
+  - type: input
+    id: location
+    attributes:
+      label: Page and step
+      placeholder: docs/preparation.md — shrink step 4
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or unclear?
+      description: Explain the current wording and the correction you suggest.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and scope
+      description: Link public official sources and dates, or describe what you personally verified. Distinguish a school-specific rule from general advice.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I have removed personal information and secrets from text and attachments.
+          required: true

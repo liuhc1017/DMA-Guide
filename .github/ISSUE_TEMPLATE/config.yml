@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Urgent school access, recovery keys, or DMA enrolment
+    url: https://www.moe.gov.sg/schoolfinder
+    about: Contact your own school ICT team through its official channel. This public repository cannot recover keys or approve device changes.

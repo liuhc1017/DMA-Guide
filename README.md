@@ -1,91 +1,42 @@
-# DMA-guide
-This is a guide to dual boot with Singapore MOE DMA, without removing any files and the normal DMA.For educational purposes only.
-Introduction 
-Instead of a normal computer booting only one OS, we can partition the disk and boot multiple OSes, including a fresh copy of any OS you want and normal MOE DMA. This improved method still allows you to login to your MIMS account and have a computer of your own that you can do whatever you want on.
-I am not liable for any damages caused. Exercise your own discretion.
+# Singapore MOE Windows Dual-Boot Guide
 
+A community guide for Singapore students who use an MOE DMA-managed Windows laptop as their Personal Learning Device (PLD)—often their only computer—and want room for programming, installing development tools, and personal projects at responsible, agreed times.
 
-Dependencies:
-  USB drive: at least 8 GB of space as of 13/2/2026 (everything will be erased)
-  
-  You might need the password to admin account.
-  
-  Windows 11 Multi edition ISO image or any Disk image of an OS of your choice(Optaining the windows image will be covered in this guide)
+The aim is to keep the **original school-managed Windows installation, files, recovery partitions, and school access**, while adding a second Windows or Linux environment where the school permits it. Dual boot means choosing an operating system when the laptop starts; only one runs at a time.
 
-  
-#You might need the administrator password for this
-Downloading Windows 11 Multi edition ISO image:
-  1. Visit https://www.microsoft.com/en-us/software-download/windows11.
-  2. Scroll down to this page:<img width="1249" height="648" alt="Screenshot 2026-02-13 173409" src="https://github.com/user-attachments/assets/47741791-9a6c-4963-b936-77d2ab292d45" />
+> [!IMPORTANT]
+> This is an independent OSS project, not an MOE or school instruction or endorsement. Preserving DMA in one installation does not make a second installation school-approved. Check your school's Acceptable Use Policy (AUP), ask its ICT team whether dual boot is allowed, and agree personal-use times with your parent/guardian. Continue using the managed installation for school.
 
-  3. Select "Windows 11(multi-edition ISO for x64 devices)".<img width="1334" height="864" alt="Screenshot 2026-02-13 173424" src="https://github.com/user-attachments/assets/4e370b6b-38e9-405d-89af-1ada1095cf92" />
+> [!WARNING]
+> Partitioning and boot changes can cause data loss, BitLocker recovery prompts, or a laptop that will not start. Preservation is the design goal, not a guarantee. **Do not start without verified backups, access to the correct recovery key, and a school recovery plan.** Never erase the disk or delete the original Windows, EFI, MSR, or recovery partitions.
 
-  4. Press confirm, choose your language and press confirm.
-  5. After loading is finished, click on "64-bit Download" and wait for the download to be done.
+## Start here
 
+1. Read [before you begin](docs/before-you-begin.md), including school permission, backups, encryption, and supported hardware.
+2. [Prepare space and installation media](docs/preparation.md). Reboot and check the original Windows before proceeding.
+3. Choose **one** second OS: [Windows 11 / Pro](docs/windows.md) or [Linux / Ubuntu](docs/linux.md).
+4. Complete [verification and everyday use](docs/everyday-use.md) before relying on the laptop for school.
+5. Save [troubleshooting](docs/troubleshooting.md) and [recovery](docs/recovery.md) somewhere accessible without this laptop.
 
-Creating a bootable USB
-  1. Visit https://rufus.ie/en/.
-  2. Scroll down to the downloads page.<img width="1148" height="861" alt="Screenshot 2026-02-13 173958" src="https://github.com/user-attachments/assets/c407c192-a72d-453d-a6fa-0a52a944ca6a" />
+| You want to… | Read this |
+| --- | --- |
+| Use personal apps after school | Ask about your school's current parent DMA options first; see [scope and alternatives](docs/before-you-begin.md) |
+| Get Windows 11 Professional | [Official media, edition selection, and licensing](docs/windows.md) |
+| Set up DMA using a MIMS account | [School-directed Windows enrolment](docs/school-enrolment.md) |
+| Learn Linux or programming | [Linux installation and compatibility checks](docs/linux.md) |
+| Return to school Windows or remove the second OS | [Recovery and rollback](docs/recovery.md) |
+| Fix or improve this guide | [Contributing](CONTRIBUTING.md) and [issue templates](https://github.com/liuhc1017/DMA-Guide/issues/new/choose) |
 
-  3. Choose the exe file corresponding to your needs (Usually its Windows x64 Standard).
-  4. Click on the download link and wait for the exe file to download.
-  5. After download is finished, click on the exe file and follow the instructions for the setup process. At the end, lauch rufus.
-  6. Plug in your USB drive (at least 8 GB; everything on it will be erased). 
-  7. Open Rufus (if Windows asks for permission, click Yes).
-  8. In Rufus:
-        Device: select your USB drive
-        Boot selection: choose Disk or ISO image
-        Click SELECT and pick your downloaded Windows 11 ISO
-        Partition scheme / Target system
-        If your PC uses UEFI (most modern PCs):
-  9. Partition scheme: GPT
-        Target system: UEFI (non CSM)
-        If your PC is older and uses Legacy BIOS:
-        Partition scheme: MBR
-        Target system: BIOS (or UEFI-CSM)
-        (If you’re unsure, GPT + UEFI is usually correct for Windows 11.)
-  10. Volume label: optional (e.g., WIN11_USB).
-  11. File system: keep default (usually NTFS).
-        If Rufus asks about UEFI:NTFS, allow it (that’s normal).
-  12. Click START.
-  13. If Rufus shows “Windows User Experience” options, you may see checkboxes like:
-        Remove requirement for TPM / Secure Boot / RAM
-        Remove requirement for Microsoft account
-        Choose what you need. I suggest unchecking them.
-  14. When warned that the USB will be erased, click OK.
-  15. Wait until it says READY, then click CLOSE. Safely eject the USB.
-  16. Windows 11 Pro will be the preferred OS if you want to instal DMA. To install windows 11 pro, create the file "ei.cfg" , add in this:
-```
-       [EditionID]
-       Professional
-       [Channel]
-       Retail
-       [VL]
-       0
-```
-  and put it into your USB --> Sources.
+## What this guide covers
 
-        
-Partitioning the disk
-  1. Press  Win+X and go to Disk management.<img width="816" height="681" alt="Screenshot 2026-02-13 175451" src="https://github.com/user-attachments/assets/d4c41a7b-166e-45f9-a231-63e158815832" />
+The documented path is for **Intel/AMD x64 laptops with UEFI, a GPT basic disk, and a working Windows installation**. It keeps Secure Boot and TPM enabled. ARM/Snapdragon, Windows SE, Chromebooks, iPads, dynamic disks, Storage Spaces, unusual multi-disk layouts, and locked firmware need device-specific school support; do not apply these steps blindly.
 
-  2. Right click on you C Drive and click shrink volume. Wait for a while<img width="1010" height="877" alt="Screenshot 2026-02-13 175505" src="https://github.com/user-attachments/assets/f6f7eda5-201b-48cf-af9f-cb3ce0d5f1ea" />
+A second partition shares the physical disk and usually the EFI boot partition with Windows. It is not a backup or complete security boundary. A disk failure or whole-device reimage can affect both operating systems. DMA policies, enrolment, drivers, and support arrangements differ between schools and device models.
 
-  3. Choose how much space you want for a fresh new windows 11 and click Shrink.<img width="582" height="395" alt="Screenshot 2026-02-13 175610" src="https://github.com/user-attachments/assets/5a5a436c-9d58-4917-b7ae-9f097a3c3b62" />
+This project documents responsible personal computing while retaining the school environment. It does not provide DMA removal, administrator-password circumvention, firmware-lock workarounds, or instructions to interfere with school management.
 
-  4. Wait for the shrink to complete.
+## Project status
 
+Documentation and source review: **16 September 2026**. Existing screenshots were captured on **13 February 2026** and are illustrative. These instructions have not been validated end to end on a school-managed PLD; no device model is certified by this project. See [sources and verification limits](docs/sources.md) and the [screenshot catalogue](assets/screenshots/README.md).
 
-Installing Windows 11 on the new disk partition
-  1. Plug your USB in.
-  2. Restart your computer and try to enter the boot screen. Search the key you need to press(normally F2 or F12)
-  3. Change the boot order to boot with your USB.
-  4. Follow the instruction and choose the empty partition when prompted where to install windows 11. You might need ethernet for this.
-  5. If your computer does not support internet, you can download the drivers into the bootable usb.
-  
-
-
-    
-  
-
+Contributions are welcome, especially reproducible corrections, current official school guidance, and privacy-safe screenshots. The project is [MIT licensed](LICENSE); third-party products and UI remain the property of their respective owners.
